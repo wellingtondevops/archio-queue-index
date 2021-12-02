@@ -52,8 +52,8 @@ async function sumDay(chek, page) {
       "totalPageArchiveDocument.dateref": d,
     },
     {
-      $inc: {
-        "totalPageArchiveDocument.$.total": page ,
+      $set: {
+        "totalPageArchiveDocument.$.total": page + targetPage.total,
       },
     }
   )
@@ -63,8 +63,8 @@ async function sumDay(chek, page) {
         "aggregateDateArchives.dateref": d,
       },
       {
-        $inc: {
-          "aggregateDateArchives.$.total": 1,
+        $set: {
+          "aggregateDateArchives.$.total": 1+ targetArchive.total,
         },
       }
     )
